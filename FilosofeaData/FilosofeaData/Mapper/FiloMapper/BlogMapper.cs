@@ -51,6 +51,5 @@ namespace FilosofeaData.Mapper.FiloMapper
             return result;
         }
 
-
     }
 }

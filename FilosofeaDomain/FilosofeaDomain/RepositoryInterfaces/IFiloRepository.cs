@@ -1,7 +1,7 @@
-﻿using FilosofeaDomain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
+using FilosofeaDomain.Entities;
 
 namespace FilosofeaDomain.RepositoryInterfaces
 {

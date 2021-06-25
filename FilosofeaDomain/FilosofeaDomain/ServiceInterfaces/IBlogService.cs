@@ -1,6 +1,7 @@
-﻿using FilosofeaDomain.DomainInterfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
+using FilosofeaDomain.DomainInterfaces;
 
 namespace FilosofeaDomain.ServiceInterfaces
 {

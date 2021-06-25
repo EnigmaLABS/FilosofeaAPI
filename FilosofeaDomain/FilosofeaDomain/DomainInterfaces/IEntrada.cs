@@ -13,7 +13,6 @@ namespace FilosofeaDomain.DomainInterfaces
         string Titulo { get; set; }
         IEnumerable<IEntradaCategoria> Categorias { get; set; }
         IEnumerable<IAutor> Autores { get; set; }
-
         IUsuario Usuario { get; set; }
     }
 }
