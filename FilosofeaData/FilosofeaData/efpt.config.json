@@ -1,0 +1,76 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "FilosofeadbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Context",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "FilosofeaData",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Autores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Autores_Categorias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Autores_Categorias_Tipos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Entradas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Entradas_Autores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Entradas_Categorias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Entradas_Categorias_Tipos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Obras]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Obras_Categorias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Obras_Categorias_Tipos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Usuarios]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "DESKTOP-OIE3RV3\\LENOVOSQL.FilosofeaDB",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
