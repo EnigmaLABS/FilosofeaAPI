@@ -1,8 +1,6 @@
 ﻿using FilosofeaData.Models;
 using FilosofeaDomain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FilosofeaData.Mapper.FiloMapper
 {

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 
 using FilosofeaDomain.DomainInterfaces;
+using FilosofeaDomain.DTOInterfaces;
 
 namespace FilosofeaDomain.ServiceInterfaces
 {
     public interface IBlogService
     {
-        IEnumerable<IEntrada> getEntradas(int idUser, DateTime? fechadesde, DateTime? fechahasta, int? top);
+        IEnumerable<IEntrada> getEntradas(int idUser, IGetEntradasFilterRequest filterRequest);
     }
 }

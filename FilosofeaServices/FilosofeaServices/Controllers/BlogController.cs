@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using FilosofeaDomain.ServiceInterfaces;
 using FilosofeaDomain.DomainInterfaces;
+using FilosofeaDomain.DTOInterfaces;
+using FilosofeaDomain.DTO.Request;
 
 namespace FilosofeaServices.Controllers
 {
@@ -24,13 +26,10 @@ namespace FilosofeaServices.Controllers
             return "value";
 
         }
-        [HttpGet("GetEntradas")]
-        public IEnumerable<IEntrada> GetEntradas(int idUser)
+        [HttpPost("GetEntradas")]
+        public IEnumerable<IEntrada> GetEntradas(int idUser, [FromBody] GetEntradasFilterRequest filterRequest)
         {
-            DateTime desde = DateTime.Now.AddYears(-1);
-            DateTime hasta = DateTime.Now;
-
-            var result = _blogService.getEntradas(idUser, desde, hasta, null);
+            var result = _blogService.getEntradas(idUser, filterRequest);
 
             return result;
         }
