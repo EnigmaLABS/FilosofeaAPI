@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Microsoft.EntityFrameworkCore;
+
 using FilosofeaData.Context;
 using FilosofeaData.Mapper.FiloMapper;
 using FilosofeaDomain.DomainInterfaces;
+using FilosofeaDomain.DTOInterfaces;
 using FilosofeaDomain.Entities;
 using FilosofeaDomain.RepositoryInterfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace FilosofeaData.Repositories
 {
@@ -53,6 +55,15 @@ namespace FilosofeaData.Repositories
                          select entrada;
 
             return BlogMapper.Entrada_ToListDTO(result.ToList());
+        }
+
+        public void PutEntrada(IPutEntradaRequest putEntradaRequest)
+        {
+            var newEntry = BlogMapper.Entrada_ToEntity(putEntradaRequest.Entrada);
+
+            _context.Entradas.Add(newEntry);
+
+            _context.SaveChanges();
         }
     }
 }

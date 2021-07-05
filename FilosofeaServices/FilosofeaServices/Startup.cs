@@ -16,6 +16,8 @@ using FilosofeaDomain.ServiceInterfaces;
 using FilosofeaDomain.RepositoryInterfaces;
 using FilosofeaDomain.DomainInterfaces;
 using FilosofeaDomain.Entities;
+using FilosofeaDomain.DTOInterfaces;
+using FilosofeaDomain.DTO.Request;
 
 namespace FilosofeaServices
 {
@@ -43,6 +45,9 @@ namespace FilosofeaServices
             //Repositories
             services.AddScoped<IFiloRepository, FiloRepository>();
             services.AddScoped<IBlogRepository, BlogRepository>();
+
+            //DTO
+            services.AddScoped<IPutEntradaRequest, PutEntradaRequest>();
 
             services.AddControllers();
             AddSwagger(services);

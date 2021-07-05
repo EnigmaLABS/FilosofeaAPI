@@ -22,7 +22,6 @@ namespace FilosofeaData.Models
         public long IdEntrada { get; set; }
         [StringLength(155)]
         public string Titulo { get; set; }
-        [StringLength(1555)]
         public string Texto { get; set; }
         [Column("fhEntrada", TypeName = "datetime")]
         public DateTime FhEntrada { get; set; }
@@ -34,7 +33,14 @@ namespace FilosofeaData.Models
         public string Hl2 { get; set; }
         [Column("idUsuario")]
         public int? IdUsuario { get; set; }
+        [Column(TypeName = "decimal(11, 2)")]
+        public decimal? Version { get; set; }
+        [Column("idEstadoEntrada")]
+        public int? IdEstadoEntrada { get; set; }
 
+        [ForeignKey(nameof(IdEstadoEntrada))]
+        [InverseProperty(nameof(EntradasEstados.Entradas))]
+        public virtual EntradasEstados IdEstadoEntradaNavigation { get; set; }
         [ForeignKey(nameof(IdUsuario))]
         [InverseProperty(nameof(Usuarios.Entradas))]
         public virtual Usuarios IdUsuarioNavigation { get; set; }

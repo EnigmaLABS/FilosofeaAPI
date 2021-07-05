@@ -42,6 +42,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Entradas_Estados]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Obras]",
          "ObjectType": 0
       },

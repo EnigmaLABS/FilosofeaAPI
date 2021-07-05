@@ -1,6 +1,7 @@
-﻿using FilosofeaData.Models;
+﻿using System.Collections.Generic;
+
+using FilosofeaData.Models;
 using FilosofeaDomain.Entities;
-using System.Collections.Generic;
 
 namespace FilosofeaData.Mapper.FiloMapper
 {
@@ -44,6 +45,41 @@ namespace FilosofeaData.Mapper.FiloMapper
                 };
 
                 result.Add(newcategory);
+            }
+
+            return result;
+        }
+
+        public static Entradas Entrada_ToEntity(Entrada entrada)
+        {
+            Entradas result = new Entradas();
+
+            result.Titulo = entrada.Titulo;
+            result.Texto = entrada.Texto;
+            result.Hl1 = entrada.Titulo;
+            result.Hl2 = entrada.Titulo;
+
+            result.IdEstadoEntrada = entrada.estadosEntradas.idEstadoEntrada;
+            result.IdUsuario = entrada.Usuario.IdUsuario;
+
+            result.EntradasAutores = new List<EntradasAutores>();
+
+            foreach (var autor in entrada.Autores)
+            {
+                result.EntradasAutores.Add(new EntradasAutores()
+                {
+                    IdAutor = autor.IdAutor
+                });
+            }
+
+            result.EntradasCategorias = new List<EntradasCategorias>();
+
+            foreach (var categoria in entrada.Categorias)
+            {
+                result.EntradasCategorias.Add(new EntradasCategorias()
+                {
+                    IdEntradaCategoria = categoria.idEntradaCategoria
+                });
             }
 
             return result;

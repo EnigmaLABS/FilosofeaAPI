@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FilosofeaDomain.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace FilosofeaDomain.DomainInterfaces
@@ -11,8 +12,9 @@ namespace FilosofeaDomain.DomainInterfaces
         long IdEntrada { get; set; }
         string Texto { get; set; }
         string Titulo { get; set; }
-        IEnumerable<IEntradaCategoria> Categorias { get; set; }
-        IEnumerable<IAutor> Autores { get; set; }
-        IUsuario Usuario { get; set; }
+        IEnumerable<EntradaCategoria> Categorias { get; set; }
+        IEnumerable<Autor> Autores { get; set; }
+        Usuario Usuario { get; set; }
+        EstadosEntradas estadosEntradas { get; set; }
     }
 }

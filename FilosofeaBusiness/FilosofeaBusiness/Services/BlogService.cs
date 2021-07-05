@@ -55,19 +55,29 @@ namespace FilosofeaBusiness.Services
             return result;
         }
 
+        public void PutEntrada(IPutEntradaRequest putEntradaRequest)
+        {
+            _blogRepository.PutEntrada(putEntradaRequest);
+        }
+
+        //-->> 
+        #region Privados
+
         private void getEntradas_ValidateRequest(IGetEntradasFilterRequest filterRequest)
         {
-
+            // TODO 
         }
 
         private void filterByCategories(ref List<Entrada> result, List<int> IdsCategorias) 
         {
             result = result.Where(f => f.Categorias.Any(i => IdsCategorias.Contains(i.idEntradaCategoria))).ToList();
         }
+
         private void filterByAutores(ref List<Entrada> result, List<long> IdsAutores)
         {
             result = result.Where(f => f.Autores.Any(i => IdsAutores.Contains(i.IdAutor))).ToList();
         }
 
+        #endregion
     }
 }

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
 using Microsoft.AspNetCore.Mvc;
 
 using FilosofeaDomain.ServiceInterfaces;
 using FilosofeaDomain.DomainInterfaces;
-using FilosofeaDomain.DTOInterfaces;
 using FilosofeaDomain.DTO.Request;
 
 namespace FilosofeaServices.Controllers
@@ -39,9 +38,10 @@ namespace FilosofeaServices.Controllers
         {
         }
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] PutEntradaRequest putEntradaRequest)
         {
+            _blogService.PutEntrada(putEntradaRequest);
         }
 
         [HttpDelete("{id}")]

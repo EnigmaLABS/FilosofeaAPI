@@ -26,6 +26,7 @@ namespace FilosofeaData.Context
         public virtual DbSet<EntradasAutores> EntradasAutores { get; set; }
         public virtual DbSet<EntradasCategorias> EntradasCategorias { get; set; }
         public virtual DbSet<EntradasCategoriasTipos> EntradasCategoriasTipos { get; set; }
+        public virtual DbSet<EntradasEstados> EntradasEstados { get; set; }
         public virtual DbSet<Obras> Obras { get; set; }
         public virtual DbSet<ObrasCategorias> ObrasCategorias { get; set; }
         public virtual DbSet<ObrasCategoriasTipos> ObrasCategoriasTipos { get; set; }
@@ -82,6 +83,11 @@ namespace FilosofeaData.Context
 
                 entity.Property(e => e.Titulo).IsUnicode(false);
 
+                entity.HasOne(d => d.IdEstadoEntradaNavigation)
+                    .WithMany(p => p.Entradas)
+                    .HasForeignKey(d => d.IdEstadoEntrada)
+                    .HasConstraintName("FK_Entradas_Entradas_Estados");
+
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Entradas)
                     .HasForeignKey(d => d.IdUsuario)
@@ -134,6 +140,16 @@ namespace FilosofeaData.Context
                     .WithMany(p => p.InverseIdEntradaCategoriaPadreNavigation)
                     .HasForeignKey(d => d.IdEntradaCategoriaPadre)
                     .HasConstraintName("FK_Entradas_Categorias_Entradas_Categorias");
+            });
+
+            modelBuilder.Entity<EntradasEstados>(entity =>
+            {
+                entity.HasKey(e => e.IdEstadoEntrada)
+                    .HasName("PK_Borradores_Estados");
+
+                entity.Property(e => e.IdEstadoEntrada).ValueGeneratedNever();
+
+                entity.Property(e => e.Descripcion).IsUnicode(false);
             });
 
             modelBuilder.Entity<Obras>(entity =>

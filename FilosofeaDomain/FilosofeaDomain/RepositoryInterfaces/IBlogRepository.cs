@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using FilosofeaDomain.DomainInterfaces;
+using FilosofeaDomain.DTOInterfaces;
 using FilosofeaDomain.Entities;
 
 namespace FilosofeaDomain.RepositoryInterfaces
@@ -12,5 +14,7 @@ namespace FilosofeaDomain.RepositoryInterfaces
         IEnumerable<Entrada> GetEntradasByCategories(int idUser, IEnumerable<IAutorCategoria> Categorias);
 
         IEnumerable<Entrada> GetEntradasByAuthors(int idUser, IEnumerable<IAutor> Autores);
+
+        void PutEntrada(IPutEntradaRequest putEntradaRequest);
     }
 }
