@@ -57,13 +57,16 @@ namespace FilosofeaData.Repositories
             return BlogMapper.Entrada_ToListDTO(result.ToList());
         }
 
-        public void PutEntrada(IPutEntradaRequest putEntradaRequest)
+        public Entrada PutEntrada(IPutEntradaRequest putEntradaRequest)
         {
             var newEntry = BlogMapper.Entrada_ToEntity(putEntradaRequest.Entrada);
 
             _context.Entradas.Add(newEntry);
 
             _context.SaveChanges();
+
+            return BlogMapper.Entrada_ToDTO(newEntry);
         }
+
     }
 }

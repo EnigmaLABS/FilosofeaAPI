@@ -1,31 +1,22 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Xunit;
 
 using FilosofeaDomain.DTO.Request;
 using FilosofeaDomain.Entities;
-using FilosofeaDomain.ServiceInterfaces;
+using FilosofeaTest.EndToEndTest.Services;
 
-namespace FilosofeaTest.Services
+namespace FilosofeaTest.Request
 {
-    public class BlogServiceTest
+    public static class BlogServiceRequest
     {
-        private IBlogService _blogService;
-
-        public BlogServiceTest(IBlogService blogService)
+        public static PutEntradaRequest PutEntrada_OK_Request(this BlogServiceTest blogServiceTest)
         {
-            _blogService = blogService;
-        }
-
-        [Fact]
-        public void PutEntrada_OK()
-        {
-
             PutEntradaRequest request = new PutEntradaRequest()
             {
                 Entrada = new Entrada()
                 {
                     Titulo = "Test PutEntrada_OK",
+                    Texto = "Test Text",
                     Hl1 = "H1 Test",
                     Hl2 = "H2 Test",
                     Usuario = new Usuario()
@@ -42,13 +33,18 @@ namespace FilosofeaTest.Services
                     estadosEntradas = new EstadosEntradas()
                     {
                         idEstadoEntrada = 1
+                    },
+                    Categorias = new List<EntradaCategoria>()
+                    {
+                        new EntradaCategoria()
+                        {
+                            idEntradaCategoria = 1
+                        }
                     }
                 }
             };
 
-            _blogService.PutEntrada(request);
-
-            Assert.True(1==1);
+            return request;
         }
     }
 }

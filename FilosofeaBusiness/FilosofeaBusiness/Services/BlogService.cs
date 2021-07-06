@@ -55,9 +55,11 @@ namespace FilosofeaBusiness.Services
             return result;
         }
 
-        public void PutEntrada(IPutEntradaRequest putEntradaRequest)
+        public IEntrada PutEntrada(IPutEntradaRequest putEntradaRequest)
         {
-            _blogRepository.PutEntrada(putEntradaRequest);
+            var result = _blogRepository.PutEntrada(putEntradaRequest);
+
+            return result;
         }
 
         //-->> 

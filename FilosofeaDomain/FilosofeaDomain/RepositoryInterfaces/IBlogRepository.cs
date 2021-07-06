@@ -15,6 +15,6 @@ namespace FilosofeaDomain.RepositoryInterfaces
 
         IEnumerable<Entrada> GetEntradasByAuthors(int idUser, IEnumerable<IAutor> Autores);
 
-        void PutEntrada(IPutEntradaRequest putEntradaRequest);
+        Entrada PutEntrada(IPutEntradaRequest putEntradaRequest);
     }
 }

@@ -47,17 +47,20 @@ namespace FilosofeaData.Mapper.FiloMapper
         {
             List<Autor> result = new List<Autor>();
 
-            foreach (var entradaAutor in entrada.EntradasAutores)
+            if (entrada.EntradasAutores != null)
             {
-                result.Add(new Autor()
+                foreach (var entradaAutor in entrada.EntradasAutores)
                 {
-                    IdAutor = entradaAutor.IdAutorNavigation.IdAutor,
-                    Nombre = entradaAutor.IdAutorNavigation.Nombre,
-                    FechaNacimiento = entradaAutor.IdAutorNavigation.FechaNacimiento,
-                    FechaFallecimiento = entradaAutor.IdAutorNavigation.FechaFallecimiento,
-                    Categorias = AutorCategoria_ToListDTO(entradaAutor.IdAutorNavigation.AutoresCategorias)
-                });
+                    result.Add(new Autor()
+                    {
+                        IdAutor = entradaAutor.IdAutor,
+                        Nombre = entradaAutor.IdAutorNavigation?.Nombre,
+                        FechaNacimiento = entradaAutor.IdAutorNavigation?.FechaNacimiento,
+                        FechaFallecimiento = entradaAutor.IdAutorNavigation?.FechaFallecimiento,
+                        Categorias = AutorCategoria_ToListDTO(entradaAutor.IdAutorNavigation?.AutoresCategorias)
+                    });
 
+                }
             }
 
             return result;
@@ -67,15 +70,18 @@ namespace FilosofeaData.Mapper.FiloMapper
         {
             List<AutorCategoria> result = new List<AutorCategoria>();
 
-            foreach (var autorCategoria in autoresCategorias)
+            if (autoresCategorias != null)
             {
-                AutorCategoria newcategory = new AutorCategoria()
+                foreach (var autorCategoria in autoresCategorias)
                 {
-                    idAutorCategoria = autorCategoria.IdAutorCategoriaNavigation.IdAutorCategoria,
-                    Categoria = autorCategoria.IdAutorCategoriaNavigation.AutorCategoria
-                };
+                    AutorCategoria newcategory = new AutorCategoria()
+                    {
+                        idAutorCategoria = autorCategoria.IdAutorCategoria,
+                        Categoria = autorCategoria.IdAutorCategoriaNavigation?.AutorCategoria
+                    };
 
-                result.Add(newcategory);
+                    result.Add(newcategory);
+                }
             }
 
             return result;

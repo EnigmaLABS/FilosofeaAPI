@@ -7,11 +7,13 @@ namespace FilosofeaData.Mapper.FiloMapper
     {
         public static Usuario toDTO(Usuarios usuario)
         {
-            Usuario result = new Usuario()
+            Usuario result = new Usuario();
+
+            if (usuario != null)
             {
-                IdUsuario = usuario.IdUsuario,
-                NombreUsuario = usuario.Usuario
-            };
+                result.IdUsuario = usuario.IdUsuario;
+                result.NombreUsuario = usuario.Usuario;
+            }
 
             return result;
         }

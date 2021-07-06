@@ -39,9 +39,11 @@ namespace FilosofeaServices.Controllers
         }
 
         [HttpPut]
-        public void Put([FromBody] PutEntradaRequest putEntradaRequest)
+        public IEntrada Put([FromBody] PutEntradaRequest putEntradaRequest)
         {
-            _blogService.PutEntrada(putEntradaRequest);
+            var result = _blogService.PutEntrada(putEntradaRequest);
+
+            return result;
         }
 
         [HttpDelete("{id}")]

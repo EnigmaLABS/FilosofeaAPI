@@ -9,6 +9,6 @@ namespace FilosofeaDomain.ServiceInterfaces
     {
         IEnumerable<IEntrada> getEntradas(int idUser, IGetEntradasFilterRequest filterRequest);
 
-        void PutEntrada(IPutEntradaRequest putEntradaRequest);
+        IEntrada PutEntrada(IPutEntradaRequest putEntradaRequest);
     }
 }

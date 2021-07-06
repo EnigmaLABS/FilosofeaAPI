@@ -32,19 +32,41 @@ namespace FilosofeaData.Mapper.FiloMapper
             return result;
         }
 
+        public static Entrada Entrada_ToDTO(Entradas entrada)
+        {
+            Entrada result = new Entrada()
+            {
+                IdEntrada = entrada.IdEntrada,
+                Hl1 = entrada.Hl1,
+                Hl2 = entrada.Hl2,
+                FhEntrada = entrada.FhEntrada,
+                Titulo = entrada.Titulo,
+                Texto = entrada.Texto,
+
+                Usuario = UserMapper.toDTO(entrada.IdUsuarioNavigation),
+                Categorias = EntradaCategoria_ToListDTO(entrada.EntradasCategorias),
+                Autores = AutorMapper.Autor_toListDTO(entrada)
+            };
+
+            return result;
+        }
+
         public static List<EntradaCategoria> EntradaCategoria_ToListDTO(ICollection<EntradasCategorias> entradasCategorias)
         {
             List<EntradaCategoria> result = new List<EntradaCategoria>();
 
-            foreach (var entradaCategoria in entradasCategorias)
+            if (entradasCategorias != null)
             {
-                EntradaCategoria newcategory = new EntradaCategoria()
+                foreach (var entradaCategoria in entradasCategorias)
                 {
-                    idEntradaCategoria = entradaCategoria.IdEntradaCategoriaNavigation.IdEntradaCategoria,
-                    Categoria = entradaCategoria.IdEntradaCategoriaNavigation.Categoria
-                };
+                    EntradaCategoria newcategory = new EntradaCategoria()
+                    {
+                        idEntradaCategoria = entradaCategoria.IdEntradaCategoria,
+                        Categoria = entradaCategoria.IdEntradaCategoriaNavigation?.Categoria
+                    };
 
-                result.Add(newcategory);
+                    result.Add(newcategory);
+                }
             }
 
             return result;
@@ -56,8 +78,8 @@ namespace FilosofeaData.Mapper.FiloMapper
 
             result.Titulo = entrada.Titulo;
             result.Texto = entrada.Texto;
-            result.Hl1 = entrada.Titulo;
-            result.Hl2 = entrada.Titulo;
+            result.Hl1 = entrada.Hl1;
+            result.Hl2 = entrada.Hl2;
 
             result.IdEstadoEntrada = entrada.estadosEntradas.idEstadoEntrada;
             result.IdUsuario = entrada.Usuario.IdUsuario;
